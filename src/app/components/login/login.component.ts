@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   public username: string = '';
   public password: string = '';
+  public invalidData: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -16,7 +17,7 @@ export class LoginComponent {
     if (this.username === 'admin' && this.password === 'admin') {
       this.router.navigate(['/dashboard']);
     } else {
-      console.log('Neispravni korisnički podaci');
+      this.invalidData = true;
     }
   }
 }
